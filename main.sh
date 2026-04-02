@@ -23,6 +23,11 @@ fi
 # Entrar en directorio comfyui
 cd comfyui || { echo "Error: No se puede acceder a comfyui"; exit 1; }
 
+# Clonar Repo de comfyui-manager
+cd custom_nodes/
+git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager
+cd ..
+
 # Crear entorno virtual si no existe
 if [ ! -d "venv" ]; then
     echo "Creando entorno virtual..."
@@ -92,6 +97,8 @@ uv pip install -r requirements.txt
 
 echo "Instalando dependencias de ComfyUI-Manager"
 uv pip install -r manager_requirements.txt
+
+
 
 
 # Ejecutar en screen
